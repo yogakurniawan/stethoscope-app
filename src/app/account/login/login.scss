@@ -1,0 +1,18 @@
+form {
+
+	& > * {
+		max-width: 500px;
+	}
+
+	form > .md-warn {
+		padding-bottom: 20px;
+	}
+}
+
+.st-login-box {
+	padding-top: 20px;
+	padding-left: 23px;
+	width: 550px;
+	height: 350px;
+	background-color: rgba(33, 89, 89, 0.07);
+}
