@@ -1,11 +1,11 @@
-section(layout="row", flex="25", layout-align="center start")
+section(layout="row", flex="20", layout-align="center start")
     img(src="assets/images/stethoscope.png")
-section#login-content(layout="column", flex, layout-align="start center")
+section(layout="column", flex, layout-align="start center")
     br
-    .st-login-box
+    .st-login-box-content
         div(layout="column", layout-align="center center")
             h1 Login
-        form(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
+        form#login-content(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
             md-input-container(md-is-error="loginForm.name.$error.required && loginForm.name.$dirty")
                 label Username
                 input(name="name", ng-model="login.user.name", required)
@@ -22,3 +22,8 @@ section#login-content(layout="column", flex, layout-align="start center")
                         
             span(layout="row", layout-align="end")
                 md-button.md-primary.md-raised(ng-disabled="!loginForm.$valid", type="submit") Login
+    .st-login-box-footer(layout="row" layout-align="center center")
+            span(flex="70")
+               p Don't have an Account?
+            span(flex="20", layout="row" layout-align="end center")
+                md-button.md-raised Register

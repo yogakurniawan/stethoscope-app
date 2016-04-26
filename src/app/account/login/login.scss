@@ -1,18 +1,37 @@
-form {
-
+form#login-content {
 	& > * {
 		max-width: 500px;
 	}
 
-	form > .md-warn {
+	& > .md-warn {
 		padding-bottom: 20px;
+	}
+	& > md-input-container:first-child {
+		margin-bottom: 5px;
 	}
 }
 
-.st-login-box {
+.st-login-box-content {
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 	padding-top: 20px;
 	padding-left: 23px;
 	width: 550px;
-	height: 350px;
+	height: 300px;
 	background-color: rgba(33, 89, 89, 0.07);
+}
+
+.st-login-box-footer {
+	background-color: rgb(33, 89, 89);
+	height: 60px;
+	width: 550px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	p {
+		color: rgb(202, 202, 206);
+		text-align: right;
+	}
+	a {
+		color: #fff;
+	}
 }
