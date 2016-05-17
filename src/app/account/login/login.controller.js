@@ -1,40 +1,34 @@
 export class LoginController {
-    constructor() {
+    constructor($log, user, userFactory) {
         'ngInject';
-        var vm = this;
-        // view model bindings
-		/**
-		 * @ngdoc property
-		 * @name user
-		 * @propertyOf enzymeApp.account.controller:LoginController
-		 * @description
-		 * The user data to use as login
-		 *
-		 * @returns {User} The user data
-		 */
-        vm.user = {};
-        /**
-		 * @ngdoc property
-		 * @name error
-		 * @propertyOf enzymeApp.account.controller:LoginController
-		 * @description
-		 * Error flag
-		 * @returns {Boolean} True if there is an error
-		 */
-        vm.error = false;
-
-        // Login function (documented below)
-        vm.login = login;
-
-		/**
-		 * @ngdoc function
-		 * @name login
-		 * @methodOf enzymeApp.account.controller:LoginController
-		 * @description
-		 * Function to use as submit for the login form
-		 * @param {form} form The form to fetch the data from
-		 */
-        function login(form) {
-        }
+		
+        this.user = {};
+        this.error = false;
+		this.log = $log;
+		this.userService = user;
+		this.userFactory = userFactory;
     }
+	
+	login(form) {
+		// if (form.$valid) {
+		// 	Auth.login({
+		// 		customerId: vm.user.customerId,
+		// 		name: vm.user.name,
+		// 		password: vm.user.password
+		// 	}).then(function () {
+		// 		// Logged in, redirect to home
+		// 		$location.path('/');
+		// 	}).catch(function (err) {
+		// 		vm.error = err;
+		// 	});
+		// }
+		var log = this.log;
+		this.userService.getUsers().then(function(users){
+			log.log(users);
+		});
+		this.log.log(this.user.name);
+		this.log.log(this.user.password);
+		this.log.log(this.login);
+		this.log.log(this.userFactory.storage);
+	}
 }
