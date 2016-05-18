@@ -1,16 +1,15 @@
 export class Auth {
-	constructor (Restangular) {
+	constructor ($localStorage, userFactory) {
 		'ngInject';
+		this.userFactory = userFactory;
 	}
 	
 	login(user, callback) {
 		/* jshint validthis:true */
 		var cb = callback || angular.noop;
 		var deferred = $q.defer();
-		$cookies.customerId = user.customerId;
 
-		$http.post('/auth/local', {
-			customerId: user.customerId,
+		$http.post('/auth/local', 
 			name: user.name,
 			password: user.password
 		}).success(function (data) {
