@@ -1,34 +1,29 @@
 export class LoginController {
-    constructor($log, user, userFactory) {
+    constructor($location, $log, auth) {
         'ngInject';
 		
-        this.user = {};
-        this.error = false;
+		this.location = $location;
 		this.log = $log;
-		this.userService = user;
-		this.userFactory = userFactory;
+		this.auth = auth;
     }
 	
 	login(form) {
-		// if (form.$valid) {
-		// 	Auth.login({
-		// 		customerId: vm.user.customerId,
-		// 		name: vm.user.name,
-		// 		password: vm.user.password
-		// 	}).then(function () {
-		// 		// Logged in, redirect to home
-		// 		$location.path('/');
-		// 	}).catch(function (err) {
-		// 		vm.error = err;
-		// 	});
-		// }
+		var vm = this;
 		var log = this.log;
-		this.userService.getUsers().then(function(users){
-			log.log(users);
-		});
-		this.log.log(this.user.name);
-		this.log.log(this.user.password);
-		this.log.log(this.login);
-		this.log.log(this.userFactory.storage);
+		var auth = this.auth;
+		var location = this.location;
+		if (form.$valid) {
+			auth.login({
+				username: vm.user.username,
+				password: vm.user.password
+			}).then(function () {
+				log.log("success login");
+				// Logged in, redirect to home
+				location.path('/');
+			}).catch(function (err) {
+				log.log("error login");
+				vm.error = err;
+			});
+		}
 	}
 }

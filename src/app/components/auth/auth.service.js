@@ -1,29 +1,43 @@
 export class Auth {
-	constructor ($localStorage, userFactory) {
+	constructor ($q, $localStorage, userFactory, Restangular, $log) {
 		'ngInject';
 		this.userFactory = userFactory;
+		this.storage = $localStorage;
+		this.rest = Restangular;
+		this.q = $q;
+		this.log = $log;
 	}
 	
 	login(user, callback) {
-		/* jshint validthis:true */
+		var log = this.log;
+		log.log("LOG: Auth.login");
 		var cb = callback || angular.noop;
-		var deferred = $q.defer();
-
-		$http.post('/auth/local', 
-			name: user.name,
+		var q = this.q;
+		var deferred = q.defer();
+		var userFactory = this.userFactory;
+		var storage = this.storage;
+		var rest = this.rest;
+		var data = {
+			username: user.username,
 			password: user.password
-		}).success(function (data) {
-			$cookieStore.put('token', data.token);
-			$cookieStore.remove('customerID');
-			currentUser = User.get();
+		};
+		userFactory.login(data, function (data) {
+			storage.token = data.id;
+			rest.setDefaultRequestParams({access_token: data.id});
 			deferred.resolve(data);
 			return cb();
-		}).error(function (err) {
-			this.logout();
+		}, function (err) {
+			// this.logout();
 			deferred.reject(err);
 			return cb(err);
-		}.bind(this));
+		});
 
 		return deferred.promise;
+	}
+	
+	isLoggedIn() {
+		var log = this.log;
+		log.log("LOG: Auth.isLoggedIn");
+		return !!this.storage.token;
 	}
 }

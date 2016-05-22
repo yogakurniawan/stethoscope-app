@@ -6,10 +6,10 @@ section(layout="column", flex, layout-align="start center")
         div(layout="column", layout-align="center center")
             h1 Login
         form#login-content(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
-            md-input-container(md-is-error="loginForm.name.$error.required && loginForm.name.$dirty")
+            md-input-container(md-is-error="loginForm.username.$error.required && loginForm.username.$dirty")
                 label Username
-                input(name="name", ng-model="login.user.name", required)
-                div(ng-messages="loginForm.name.$error", ng-if="loginForm.name.$dirty")
+                input(name="username", ng-model="login.user.username", required)
+                div(ng-messages="loginForm.username.$error", ng-if="loginForm.username.$dirty")
                     div(ng-message="required")
                         Username is required
 
@@ -18,7 +18,7 @@ section(layout="column", flex, layout-align="start center")
                 input(name="password", type="password", ng-model="login.user.password", required)
                 div(ng-messages="loginForm.password.$error", ng-if="loginForm.password.$dirty")
                     div(ng-message="required")
-                        Username is required
+                        Password is required
                         
             span(md-theme="stethoscopeTheme", layout="row", layout-align="end")
                 md-button.md-primary.md-raised(ng-disabled="!loginForm.$valid", type="submit") Login
