@@ -8,6 +8,7 @@
     <md-button href="#" class="md-raised">Contact</md-button>
   </section>
 
-  <md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>
+  <md-button class="md-raised" ui-sref='login'>Login</md-button>
+  <md-button class="md-raised" ng-click='vm.auth.logout()' ui-sref='login'>Logout</md-button>
 
 </md-toolbar>

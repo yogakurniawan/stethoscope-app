@@ -31,8 +31,8 @@ export class MainController {
     var user = this.user;
     // this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
     // this.classAnimation = '';
-    user.listUsers().then(function (users) {
-      log.log(users[0].username);
+    user.getByUsername("yogakurniawan").then(function (users) {
+      log.log(users[0]);
     });
   }
 }

@@ -1,5 +1,5 @@
 export class Auth {
-	constructor ($q, $localStorage, userFactory, Restangular, $log) {
+	constructor ($state, $q, $localStorage, userFactory, Restangular, $log) {
 		'ngInject';
 		this.userFactory = userFactory;
 		this.storage = $localStorage;
@@ -10,7 +10,7 @@ export class Auth {
 	
 	login(user, callback) {
 		var log = this.log;
-		log.log("LOG: Auth.login");
+		log.log('LOG: Auth.login');
 		var cb = callback || angular.noop;
 		var q = this.q;
 		var deferred = q.defer();
@@ -37,7 +37,13 @@ export class Auth {
 	
 	isLoggedIn() {
 		var log = this.log;
-		log.log("LOG: Auth.isLoggedIn");
+		log.log('LOG: Auth.isLoggedIn');
 		return !!this.storage.token;
+	}
+	
+	logout() {
+		var storage = this.storage;
+		delete storage.token;
+		$state.go('login');
 	}
 }

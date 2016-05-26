@@ -1,12 +1,14 @@
 export function UserFactory(Restangular, $log) {
     'ngInject'
     var rest = Restangular;
-    var baseUsers = rest.all('users');
+    var userAll = rest.all('users');
+    var userOne = rest.one('users');
     var log = $log;
 
     return {
         login: login,
-        listUsers: getUsers
+        listUsers: getUsers,
+        getByUsername: getUserByUsername
     }
 
     function login(data, success, fail) {
@@ -24,5 +26,11 @@ export function UserFactory(Restangular, $log) {
     function getUsers() {
         log.log('LOG: UserFactory.getUsers');
         return baseUsers.getList();
+    }
+    
+    function getUserByUsername(username) {
+        log.log('LOG: UserFactory.getUserByUsername');
+        var user = userOne.get({filter: {where: {username: username}}});
+        return user;
     }
 }
