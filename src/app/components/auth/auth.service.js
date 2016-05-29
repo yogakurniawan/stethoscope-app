@@ -44,6 +44,5 @@ export class Auth {
 	logout() {
 		var storage = this.storage;
 		delete storage.token;
-		$state.go('login');
 	}
 }
