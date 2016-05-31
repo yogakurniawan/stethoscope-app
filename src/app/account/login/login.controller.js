@@ -15,6 +15,7 @@ export class LoginController {
 		var location = this.location;
 		var alert = this.showAlert.bind(this);
 		if (form.$valid) {
+			form.$valid = false;
 			auth.login({
 				username: vm.user.username,
 				password: vm.user.password
@@ -25,6 +26,7 @@ export class LoginController {
 			}).catch(function (err) {
 				log.log("error login");
 				vm.error = err;
+				form.$valid = true;
 				alert();
 			});
 		}
@@ -32,7 +34,7 @@ export class LoginController {
 	
 	showAlert() {
 		var dialog = this.dialog;
-		dialog.show(
+		return dialog.show(
 			dialog.alert()
 				.parent(angular.element(document.querySelector('.st-login-box-content')))
 				.clickOutsideToClose(true)
