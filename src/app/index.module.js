@@ -24,7 +24,8 @@ angular.module('stethoscope',
       'restangular', 
       'ui.router', 
       'ngMaterial', 
-      'toastr'
+      'toastr',
+      'ngMdIcons'
     ]
   )
   .constant('malarkey', malarkey)
@@ -32,25 +33,10 @@ angular.module('stethoscope',
   .config(config)
   .config(routerConfig)
   .config(function($mdThemingProvider){
-    $mdThemingProvider.definePalette('darkGreen', {
-      '50': 'ffebee',
-      '100': 'ffcdd2',
-      '200': 'ef9a9a',
-      '300': 'rgb(33, 89, 89)',
-      '400': 'ef5350',
-      '500': 'rgb(33, 89, 89)',
-      '600': 'e53935',
-      '700': 'd32f2f',
-      '800': 'rgb(33, 89, 89)',
-      '900': 'b71c1c',
-      'A100': 'rgb(33, 89, 89)',
-      'A200': 'ff5252',
-      'A400': 'ff1744',
-      'A700': 'd50000',
-      'contrastDefaultColor': 'light'
-    });
-    $mdThemingProvider.theme('stethoscopeTheme')
-      .primaryPalette('darkGreen');
+    $mdThemingProvider.theme('default')
+      .primaryPalette('teal')
+      .accentPalette('light-green')
+      .warnPalette('lime')
   })
   .run(runBlock)
   .service('webDevTec', WebDevTecService)

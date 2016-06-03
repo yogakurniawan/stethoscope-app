@@ -1,4 +1,4 @@
-export function config ($logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
+export function config ($mdIconProvider, $logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -13,4 +13,5 @@ export function config ($logProvider, toastrConfig, $httpProvider, $urlRouterPro
   $urlRouterProvider.otherwise('/');
 	$urlMatcherFactoryProvider.strictMode(false);
 	$locationProvider.html5Mode(true);
+  $mdIconProvider.fontSet('md', 'material-icons');
 }
