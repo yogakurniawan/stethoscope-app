@@ -29,10 +29,7 @@ export class MainController {
   showToastr() {
     var log = this.log;
     var user = this.user;
-    // this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    // this.classAnimation = '';
-    user.getByUsername("yogakurniawan").then(function (users) {
-      log.log(users[0]);
-    });
+    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
+    this.classAnimation = '';
   }
 }

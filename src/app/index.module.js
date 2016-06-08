@@ -32,12 +32,6 @@ angular.module('stethoscope',
   .constant('moment', moment)
   .config(config)
   .config(routerConfig)
-  .config(function($mdThemingProvider){
-    $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-      .accentPalette('light-green')
-      .warnPalette('lime')
-  })
   .run(runBlock)
   .service('webDevTec', WebDevTecService)
   .service('auth', Auth)
