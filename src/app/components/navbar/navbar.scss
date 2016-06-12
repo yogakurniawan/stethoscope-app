@@ -1,17 +1,9 @@
-.acme-navbar-text{
-  color: white;
+.st-navbar-logo {
+  background-image: url("../../assets/images/stethoscope-navbar-logo.png");
+  background-repeat: no-repeat;
+  height: 35px;
 }
 
-a {
-  color: black;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0;
-  line-height: 1.25em;
-}
-
-a:hover, a:focus {
-  color: greenyellow;
+.st-logout-icon {
+  text-align: right;
 }

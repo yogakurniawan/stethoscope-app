@@ -39,4 +39,4 @@ angular.module('stethoscope',
   .factory('authInterceptor', AuthInterceptor)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
-  .directive('acmeNavbar', NavbarDirective)
+  .directive('stNavbar', NavbarDirective)
