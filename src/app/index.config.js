@@ -22,5 +22,5 @@ export function config ($mdThemingProvider, $mdIconProvider, $logProvider, toast
   $mdThemingProvider.theme('default')
       .primaryPalette('teal')
       .accentPalette('light-green')
-      .warnPalette('lime')
+      .warnPalette('amber')
 }
