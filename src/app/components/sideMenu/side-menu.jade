@@ -1,0 +1,19 @@
+md-sidenavmd-sidenav-left.md-whiteframe-z2(md-component-id="sideMenu", layout="column")
+	md-toolbar
+		span.md-toolbar-tools.md-toolbar-tools-top(layout="column")
+		  h1 {{::enzyme}}
+	md-content(flex, ng-controller="MainMenuController as menu")
+		ul
+			li
+				md-button(ng-click="menu.logout()")
+					Logout
+		ul(ng-repeat="item in menu.items")
+			li(ng-show="menu.canAccess(item)")
+				md-button(ui-sref-active="md-primary", ui-sref="{{item.state}}")
+					{{item.name}}
+				ul(ng-if="item.subItems", ng-repeat="subItem in item.subItems")
+					li
+						md-button(ui-sref-active="md-primary" ui-sref="{{subItem.state}}")
+							{{subItem.name}}
+
+            
