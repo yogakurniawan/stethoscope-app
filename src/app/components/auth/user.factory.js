@@ -1,4 +1,4 @@
-export function UserFactory(Restangular, $log) {
+export function UserFactory (Restangular, $log) {
     'ngInject'
     var rest = Restangular;
     var userAll = rest.all('users');

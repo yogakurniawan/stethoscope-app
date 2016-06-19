@@ -1,4 +1,4 @@
-export class Auth {
+export class AuthService {
 	constructor ($state, $q, $localStorage, userFactory, Restangular, $log) {
 		'ngInject';
 		this.userFactory = userFactory;

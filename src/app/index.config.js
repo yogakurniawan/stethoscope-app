@@ -1,4 +1,4 @@
-export function config ($mdThemingProvider, $mdIconProvider, $logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
+export function config (sideMenuProvider, $mdThemingProvider, $mdIconProvider, $logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -23,4 +23,9 @@ export function config ($mdThemingProvider, $mdIconProvider, $logProvider, toast
       .primaryPalette('teal')
       .accentPalette('light-green')
       .warnPalette('amber')
+  sideMenuProvider.addMenuItem({
+			name: 'Home',
+			state: 'home',
+			order: 1
+		});
 }

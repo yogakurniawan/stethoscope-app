@@ -1,4 +1,4 @@
-export function AuthInterceptor ($q, $location, $timeout, $localStorage, $log) {
+export function AuthInterceptorFactory ($q, $location, $timeout, $localStorage, $log) {
     'ngInject';
     var storage = $localStorage;
     var log = $log;

@@ -1,4 +1,4 @@
-export function SideMenuDirective() {
+export function SideMenuDirective ($rootScope, $document) {
     'ngInject';
 
     let directive = {
@@ -7,7 +7,7 @@ export function SideMenuDirective() {
         replace: true,
         templateUrl: 'app/components/sideMenu/side-menu.html',
         controller: SideMenuController,
-        controllerAs: 'vm',
+        controllerAs: 'menu',
         bindToController: true
     };
 
@@ -16,7 +16,7 @@ export function SideMenuDirective() {
             .close()
             .then(mainContentArea.focus());
     }
-    // directives link definition
+
     function link(scope, elem, attrs) {
         var componentId = attrs.mdComponentId || 'mainMenu';
         var mainContentArea = $document[0].querySelector(attrs.mainContent || 'main');
@@ -27,7 +27,27 @@ export function SideMenuDirective() {
 }
 
 class SideMenuController {
-    constructor() {
+    constructor(sideMenu, $mdSidenav, _, auth) {
         'ngInject';
+        // view model bindings
+        this.auth = auth;
+		this.sidenavId = 'sideMenu';
+		this.items = _.sortBy(sideMenu.getMenu(), 'order');		
+    }
+
+    close() {
+        return $mdSidenav(this.sidenavId).close();
+    }
+
+    canAccess(menuItem) {
+        // if (menuItem.role) {
+        //     return Auth.hasRole(menuItem.role);
+        // }
+
+        return true;
+    }
+
+    logout() {
+        this.close().then(this.auth.logout);
     }
 }

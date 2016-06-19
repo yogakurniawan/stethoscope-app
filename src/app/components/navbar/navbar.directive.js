@@ -16,11 +16,15 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor (moment, auth) {
+  constructor (auth, $mdSidenav) {
     'ngInject';
-
-    // "this.creationDate" is available by directive option "bindToController: true"
-    this.relativeDate = moment(this.creationDate).fromNow();
+    this.sideNavId = 'sideMenu';
     this.auth = auth;
+    this.mdSidenav = $mdSidenav;
+  }
+
+  openMainMenu () {
+    var sideNav = this.mdSidenav;
+    return sideNav(this.sideNavId).open();
   }
 }
