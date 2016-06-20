@@ -5,7 +5,9 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Oxygen);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+// @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
 @font-face {
   font-family: 'Material Icons';
@@ -45,7 +47,7 @@
 }
 
 html {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Oxygen', sans-serif;
 }
 
 [layout=row] {
@@ -73,20 +75,6 @@ section.jumbotron {
 
   h1 {
     font-size: 3em;
-  }
-}
-
-.techs {
-  display: flex;
-  flex-flow: row wrap;
-
-  md-card {
-    width: 30%;
-
-    img.pull-right {
-      float: right;
-      width: 100px;
-    }
   }
 }
 

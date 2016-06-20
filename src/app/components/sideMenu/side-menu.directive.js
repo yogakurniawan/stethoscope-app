@@ -1,4 +1,4 @@
-export function SideMenuDirective ($rootScope, $document) {
+export function SideMenuDirective($rootScope, $document) {
     'ngInject';
 
     let directive = {
@@ -27,12 +27,14 @@ export function SideMenuDirective ($rootScope, $document) {
 }
 
 class SideMenuController {
-    constructor(sideMenu, $mdSidenav, _, auth) {
+    constructor(sideMenu, $mdSidenav, _, auth, $location) {
         'ngInject';
         // view model bindings
         this.auth = auth;
-		this.sidenavId = 'sideMenu';
-		this.items = _.sortBy(sideMenu.getMenu(), 'order');		
+        this.sidenavId = 'sideMenu';
+        debugger;
+        // this.items = _.sortBy(sideMenu.getMenu(), 'order');
+        this.sections = sideMenu.getMenu();
     }
 
     close() {

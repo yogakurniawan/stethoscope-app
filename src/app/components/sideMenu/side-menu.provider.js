@@ -23,10 +23,10 @@ export class SideMenuProvider {
 	}
 
   addSubMenuItem(parent, menuData) {
-    // var menuItem = _.find(menu, { state: parent });
-    // if (menuItem) {
-    //   menuItem.subItems = menuItem.subItems || [];
-    //   menuItem.subItems.push(menuData);
-    // }
+    var menuItem = _.find(this.menu, { state: parent });
+    if (menuItem) {
+      menuItem.subItems = menuItem.subItems || [];
+      menuItem.subItems.push(menuData);
+    }
 	}
 }

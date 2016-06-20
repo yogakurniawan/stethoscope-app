@@ -4,14 +4,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="sideMenu", layout="
 			h1 Stethoscope
 		md-content(flex)
 			ul
-				li
-					md-button(ng-click="menu.logout()")
-						Logout
-				ul(ng-repeat="item in menu.items")
-					li(ng-show="menu.canAccess(item)")
-						md-button(ui-sref-active="md-primary", ui-sref="{{item.state}}")
-							{{item.name}}
-						ul(ng-if="item.subItems", ng-repeat="subItem in item.subItems")
-							li
-								md-button(ui-sref-active="md-primary" ui-sref="{{subItem.state}}")
-									{{subItem.name}}
+				li.parent-list-item(ng-repeat="section in menu.sections", ng-class="{'parentActive' : menu.isOpen(section)}")
+					h2.menu-heading(ng-if="section.type === 'heading'")
+					menu-link(section="section", ng-if="section.type === 'link'")
+					menu-toggle(section="section", ng-if="section.type === 'toggle'")

@@ -1,4 +1,4 @@
-export function config (sideMenuProvider, $mdThemingProvider, $mdIconProvider, $logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
+export function config(sideMenuProvider, $mdThemingProvider, $mdIconProvider, $logProvider, toastrConfig, $httpProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -11,8 +11,8 @@ export function config (sideMenuProvider, $mdThemingProvider, $mdIconProvider, $
   toastrConfig.progressBar = true;
   $httpProvider.interceptors.push('authInterceptor');
   $urlRouterProvider.otherwise('/');
-	$urlMatcherFactoryProvider.strictMode(false);
-	$locationProvider.html5Mode(true);
+  $urlMatcherFactoryProvider.strictMode(false);
+  $locationProvider.html5Mode(true);
   var spritePath = 'bower_components/material-design-icons/sprites/svg-sprite/';
   $mdIconProvider.iconSet('navigation', spritePath + 'svg-sprite-navigation.svg');
   $mdIconProvider.iconSet('action', spritePath + 'svg-sprite-action.svg');
@@ -20,12 +20,64 @@ export function config (sideMenuProvider, $mdThemingProvider, $mdIconProvider, $
   $mdIconProvider.iconSet('toggle', spritePath + 'svg-sprite-toggle.svg');
   $mdIconProvider.iconSet('alert', spritePath + 'svg-sprite-alert.svg');
   $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-      .accentPalette('light-green')
-      .warnPalette('amber')
+    .primaryPalette('teal')
+    .accentPalette('light-green')
+    .warnPalette('amber')
+
+
   sideMenuProvider.addMenuItem({
-			name: 'Home',
-			state: 'home',
-			order: 1
-		});
+    name: 'Getting Started',
+    state: 'home.gettingstarted',
+    type: 'link'
+  });
+
+  sideMenuProvider.addMenuItem({
+    name: 'Beers',
+    type: 'toggle',
+    pages: [
+      {
+        name: 'IPAs',
+        type: 'link',
+        state: 'home.beers.ipas',
+        icon: 'fa fa-group'
+      },
+      {
+        name: 'Porters',
+        state: 'home.beers.porters',
+        type: 'link',
+        icon: 'fa fa-map-marker'
+      },
+      {
+        name: 'Wheat',
+        state: 'home.beers.wheat',
+        type: 'link',
+        icon: 'fa fa-plus'
+      }
+    ]
+  });
+
+  sideMenuProvider.addMenuItem({
+    name: 'Munchies',
+    type: 'toggle',
+    pages: [
+      {
+        name: 'Cheetos',
+        type: 'link',
+        state: 'munchies.cheetos',
+        icon: 'fa fa-group'
+      },
+      {
+        name: 'Banana Chips',
+        state: 'munchies.bananachips',
+        type: 'link',
+        icon: 'fa fa-map-marker'
+      },
+      {
+        name: 'Donuts',
+        state: 'munchies.donuts',
+        type: 'link',
+        icon: 'fa fa-map-marker'
+      }
+    ]
+  });
 }

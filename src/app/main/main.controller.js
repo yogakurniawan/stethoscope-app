@@ -1,35 +1,30 @@
 export class MainController {
-  constructor($timeout, webDevTec, toastr, userFactory, $log) {
+  constructor(userFactory, $log) {
     'ngInject';
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1461280991674;
-    this.toastr = toastr;
     this.log = $log;
     this.user = userFactory;
-    this.activate($timeout, webDevTec);
+    this.openedSection = null;
+    // this.location = $location;
+    this.autoFocusContent = false;
+    this.status = {
+      isFirstOpen: true,
+      isFirstDisabled: false
+    }
   }
 
-  activate($timeout, webDevTec) {
-    this.getWebDevTec(webDevTec);
-    $timeout(() => {
-      this.classAnimation = 'rubberBand';
-    }, 4000);
+  toggleOpen(section) {
+    this.openedSection = (this.openedSection === section ? null : section);
   }
 
-  getWebDevTec(webDevTec) {
-    this.awesomeThings = webDevTec.getTec();
-
-    angular.forEach(this.awesomeThings, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
-    });
+  isOpen(section) {
+    return this.openedSection === section;
   }
 
-  showToastr() {
-    var log = this.log;
-    var user = this.user;
-    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    this.classAnimation = '';
+  selectPage(section, page) {
+    var location = this.location;
+    page && page.url && location.path(page.url);
+    this.currentSection = section;
+    this.currentPage = page;
   }
 }
