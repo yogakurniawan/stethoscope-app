@@ -10,10 +10,10 @@ export function MenuToggleDirective () {
     };
 
     function link (scope, element) {
-      debugger;
           var controller = element.parent().controller();
 
           scope.isOpen = function () {
+            debugger;
             return controller.isOpen(scope.section);
           };
           scope.toggle = function () {

@@ -32,7 +32,6 @@ class SideMenuController {
         // view model bindings
         this.auth = auth;
         this.sidenavId = 'sideMenu';
-        debugger;
         // this.items = _.sortBy(sideMenu.getMenu(), 'order');
         this.sections = sideMenu.getMenu();
     }
