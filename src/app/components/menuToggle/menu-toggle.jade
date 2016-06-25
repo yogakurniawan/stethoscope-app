@@ -1,5 +1,5 @@
 md-button.md-primary.md-button-toggle(ng-click="toggle()", aria-controls="docs-menu-{{section.name}}", flex, layout="row", aria-expanded="{{isOpen()}}")
   | {{ section.name }}
-ul.menu-toggle-list(id="docs-menu-{{section.name}}", ng-show="isOpen()")
+ul.menu-toggle-list(id="docs-menu-{{section.name}}", ng-show="isSelected()")
   li(ng-repeat="page in section.pages")
     menu-link(section="page")

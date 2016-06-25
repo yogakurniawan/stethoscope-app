@@ -38,7 +38,7 @@ export function config(sideMenuProvider, $mdThemingProvider, $mdIconProvider, $l
       {
         name: 'IPAs',
         type: 'link',
-        state: 'home.beers.ipas',
+        state: 'home',
         icon: 'fa fa-group'
       },
       {

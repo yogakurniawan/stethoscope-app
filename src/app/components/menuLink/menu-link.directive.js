@@ -3,7 +3,7 @@ export function MenuLinkDirective () {
 
     let directive = {
         scope: {
-          section: '='
+          section: '=section'
         },
         templateUrl: 'app/components/menuLink/menu-link.html',
         link: link
@@ -11,9 +11,11 @@ export function MenuLinkDirective () {
 
     function link($scope, $element, attrs) {
         var controller = $element.parent().controller();
+        $scope.isSelected = function () {
+            return controller.isPageSelected($scope.section)
+        }
+
         $scope.focusSection = function () {
-          // set flag to be used later when
-          // $locationChangeSuccess calls openPage()
           controller.autoFocusContent = true;
         };
     }

@@ -3,7 +3,7 @@ export function MenuToggleDirective () {
 
     let directive = {
         scope: {
-          section: '='
+          section: '=section'
         },
         templateUrl: 'app/components/menuToggle/menu-toggle.html',
         link: link
@@ -12,10 +12,10 @@ export function MenuToggleDirective () {
     function link (scope, element) {
           var controller = element.parent().controller();
 
-          scope.isOpen = function () {
-            debugger;
-            return controller.isOpen(scope.section);
+          scope.isSelected = function () {
+            return controller.isSelected(scope.section);
           };
+
           scope.toggle = function () {
             controller.toggleOpen(scope.section);
           };

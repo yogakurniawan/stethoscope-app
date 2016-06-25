@@ -1,5 +1,5 @@
 export class MainController {
-  constructor(userFactory, $log) {
+  constructor($rootScope, $location, userFactory, $log) {
     'ngInject';
 
     this.log = $log;
@@ -11,20 +11,39 @@ export class MainController {
       isFirstOpen: true,
       isFirstDisabled: false
     }
+    $rootScope.$on('$locationChangeSuccess', this.onLocationChange);
+  }
+
+  onLocationChange() {
+    var location = $location;
+    var path = location.path();
+    var introLink = {
+      name: "Introduction",
+      url: "/",
+      type: "link"
+    };
+
+    if (path == '/') {
+      self.selectSection(introLink);
+      self.selectPage(introLink, introLink);
+      return;
+    }
   }
 
   toggleOpen(section) {
     this.openedSection = (this.openedSection === section ? null : section);
   }
 
-  isOpen(section) {
+  isSelected(section) {
     return this.openedSection === section;
   }
 
   selectPage(section, page) {
-    var location = this.location;
-    page && page.url && location.path(page.url);
     this.currentSection = section;
     this.currentPage = page;
+  }
+
+  isPageSelected(page) {
+    return this.currentPage === page
   }
 }

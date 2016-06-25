@@ -1,10 +1,10 @@
 md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="sideMenu", layout="column")
-	md-toolbar.st-md-toolbar-side-menu
-		span.md-toolbar-tools.md-toolbar-tools-top(layout="column")
-			h1 Stethoscope
-		md-content(flex)
-			ul.side-menu
-				li.parent-list-item(ng-repeat="section in menu.sections", ng-class="{'parentActive' : menu.isOpen(section)}")
-					h2.menu-heading(ng-if="section.type === 'heading'")
-					menu-link(section="section", ng-if="section.type === 'link'")
-					menu-toggle(section="section", ng-if="section.type === 'toggle'")
+	header.st-nav-header
+		div.st-docs-logo
+			img(src="assets/images/stethoscope-sidemenu-logo.svg")
+	md-content(flex)
+		ul.side-menu
+			li.parent-list-item(ng-repeat="section in menu.sections", ng-class="{'parentActive' : menu.isOpen(section)}")
+				h2.menu-heading(ng-if="section.type === 'heading'")
+				menu-link(section="section", ng-if="section.type === 'link'")
+				menu-toggle(section="section", ng-if="section.type === 'toggle'")
