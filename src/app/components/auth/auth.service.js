@@ -9,40 +9,55 @@ export class AuthService {
 	}
 	
 	login(user, callback) {
-		var log = this.log;
+		let log = this.log;
 		log.log('LOG: Auth.login');
-		var cb = callback || angular.noop;
-		var q = this.q;
-		var deferred = q.defer();
-		var userFactory = this.userFactory;
-		var storage = this.storage;
-		var rest = this.rest;
+		let cb = callback || angular.noop;
+		let q = this.q;
+		let deferred = q.defer();
+		let userFactory = this.userFactory;
+		let storage = this.storage;
+		let rest = this.rest;
+		var that = this;
 		var data = {
 			username: user.username,
 			password: user.password
 		};
-		userFactory.login(data, function (data) {
-			storage.token = data.id;
-			rest.setDefaultRequestParams({access_token: data.id});
-			deferred.resolve(data);
+		let success = function (res) {
+			storage.token = res.id;
+			rest.setDefaultRequestParams({access_token: res.id});
+			that.getUserDetail(data.username, deferred.resolve);
 			return cb();
-		}, function (err) {
-			// this.logout();
+		};
+		let failed = function (err) {
+			that.logout();
 			deferred.reject(err);
 			return cb(err);
-		});
-
+		};
+		userFactory.login(data, success, failed);
 		return deferred.promise;
 	}
 	
 	isLoggedIn() {
-		var log = this.log;
+		let log = this.log;
 		log.log('LOG: Auth.isLoggedIn');
 		return !!this.storage.token;
 	}
+
+	getUserDetail(username, success, failed) {
+		var storage = this.storage;
+		let userFactory = this.userFactory;
+		failed = failed || angular.noop;
+		userFactory.getByUsername(username).then(function(res){
+			if (typeof success === 'function') {
+				success(res);
+			}
+			storage.userData = angular.isArray(res) ? res[0] : res;
+		}, failed);
+	}
 	
 	logout() {
-		var storage = this.storage;
+		let storage = this.storage;
+		delete storage.userData;
 		delete storage.token;
 	}
 }

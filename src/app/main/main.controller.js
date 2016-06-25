@@ -5,7 +5,7 @@ export class MainController {
     this.log = $log;
     this.user = userFactory;
     this.openedSection = null;
-    // this.location = $location;
+    this.location = $location;
     this.autoFocusContent = false;
     this.status = {
       isFirstOpen: true,
@@ -15,19 +15,19 @@ export class MainController {
   }
 
   onLocationChange() {
-    var location = $location;
-    var path = location.path();
-    var introLink = {
-      name: "Introduction",
-      url: "/",
-      type: "link"
-    };
+    // var location = this.location;
+    // var path = location.path();
+    // var introLink = {
+    //   name: "Introduction",
+    //   url: "/",
+    //   type: "link"
+    // };
 
-    if (path == '/') {
-      self.selectSection(introLink);
-      self.selectPage(introLink, introLink);
-      return;
-    }
+    // if (path == '/') {
+    //   self.selectSection(introLink);
+    //   self.selectPage(introLink, introLink);
+    //   return;
+    // }
   }
 
   toggleOpen(section) {

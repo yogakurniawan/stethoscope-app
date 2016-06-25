@@ -2,10 +2,10 @@ export class LoginController {
     constructor($mdDialog, $location, $log, auth) {
         'ngInject';
 		
-		this.location = $location;
-		this.log = $log;
-		this.auth = auth;
-		this.dialog = $mdDialog;
+				this.location = $location;
+				this.log = $log;
+				this.auth = auth;
+				this.dialog = $mdDialog;
     }
 	
 	login(form) {
@@ -19,7 +19,7 @@ export class LoginController {
 			auth.login({
 				username: vm.user.username,
 				password: vm.user.password
-			}).then(function () {
+			}).then(function (data) {
 				log.log("success login");
 				// Logged in, redirect to home
 				location.path('/');

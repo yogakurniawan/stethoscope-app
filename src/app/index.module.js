@@ -8,7 +8,6 @@ import { LoginController } from './account/login/login.controller';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { UserFactory } from '../app/components/auth/user.factory';
-import { LodashFactory } from '../app/components/lodash/lodash.factory';
 import { AuthInterceptorFactory } from '../app/components/auth/authinterceptor.factory';
 import { AuthService } from '../app/components/auth/auth.service';
 import { SideMenuProvider } from '../app/components/sideMenu/side-menu.provider';
@@ -41,7 +40,6 @@ angular.module('stethoscope',
   .service('webDevTec', WebDevTecService)
   .service('auth', AuthService)
   .factory('userFactory', UserFactory)
-  .factory('_', LodashFactory)
   .factory('authInterceptor', AuthInterceptorFactory)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)

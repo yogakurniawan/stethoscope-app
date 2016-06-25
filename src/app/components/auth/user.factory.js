@@ -14,7 +14,7 @@ export function UserFactory (Restangular, $log) {
     function login(data, success, fail) {
         log.log('LOG: UserFactory.login');
         var login = rest.all("users/login");
-        login.post(data).then(function (res) {
+        login.post(data).then(function (res) {            
             angular.isFunction(success) && success(res);
             log.log('LOG: UserFactory.login :: Login success!!');
         }, function (err) {

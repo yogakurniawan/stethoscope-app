@@ -1,4 +1,4 @@
-export function SideMenuDirective($rootScope, $document) {
+export function SideMenuDirective($rootScope, $mdSidenav, $document) {
     'ngInject';
 
     let directive = {
@@ -11,23 +11,25 @@ export function SideMenuDirective($rootScope, $document) {
         bindToController: true
     };
 
-    function openPage() {
-        $mdSidenav(componentId)
-            .close()
-            .then(mainContentArea.focus());
+    function openPage(componentId, mainContentArea) {
+        if (mainContentArea) {
+            $mdSidenav(componentId)
+                .close()
+                .then(mainContentArea.focus());
+        }
     }
 
     function link(scope, elem, attrs) {
         var componentId = attrs.mdComponentId || 'mainMenu';
         var mainContentArea = $document[0].querySelector(attrs.mainContent || 'main');
-        $rootScope.$on('$locationChangeSuccess', openPage);
+        $rootScope.$on('$locationChangeSuccess', openPage.bind(null, componentId, mainContentArea));
     }
 
     return directive;
 }
 
 class SideMenuController {
-    constructor(sideMenu, $mdSidenav, _, auth, $location) {
+    constructor(sideMenu, $mdSidenav, auth, $location) {
         'ngInject';
         // view model bindings
         this.auth = auth;
