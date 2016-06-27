@@ -22,7 +22,7 @@ export function config(sideMenuProvider, $mdThemingProvider, $mdIconProvider, $l
   $mdThemingProvider.theme('default')
     .primaryPalette('teal')
     .accentPalette('light-green')
-    .warnPalette('amber')
+    .warnPalette('red')
 
 
   sideMenuProvider.addMenuItem({

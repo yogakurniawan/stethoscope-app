@@ -1,4 +1,4 @@
-/* global malarkey:false, moment:false */
+/* global moment:false */
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
@@ -39,6 +39,9 @@ angular.module('stethoscope',
   .provider('sideMenu', SideMenuProvider)
   .service('webDevTec', WebDevTecService)
   .service('auth', AuthService)
+  .factory('_', function($window){
+      return $window._;
+  })
   .factory('userFactory', UserFactory)
   .factory('authInterceptor', AuthInterceptorFactory)
   .controller('MainController', MainController)

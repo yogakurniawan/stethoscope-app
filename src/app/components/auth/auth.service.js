@@ -48,7 +48,7 @@ export class AuthService {
 		let userFactory = this.userFactory;
 		failed = failed || angular.noop;
 		userFactory.getByUsername(username).then(function(res){
-			if (typeof success === 'function') {
+			if (angular.isFunction(success)) {
 				success(res);
 			}
 			storage.userData = angular.isArray(res) ? res[0] : res;

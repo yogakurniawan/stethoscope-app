@@ -9,7 +9,7 @@ export function MenuLinkDirective () {
         link: link
     };
 
-    function link($scope, $element, attrs) {
+    function link($scope, $element) {
         var controller = $element.parent().controller();
         $scope.isSelected = function () {
             return controller.isPageSelected($scope.section)

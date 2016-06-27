@@ -22,7 +22,7 @@ export class SideMenuProvider {
     this.menu.push(menuData);
 	}
 
-  addSubMenuItem(parent, menuData) {
+  addSubMenuItem(_, parent, menuData) {
     var menuItem = _.find(this.menu, { state: parent });
     if (menuItem) {
       menuItem.subItems = menuItem.subItems || [];

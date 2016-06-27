@@ -13,7 +13,7 @@ export function UserFactory (Restangular, $log) {
 
     function login(data, success, fail) {
         log.log('LOG: UserFactory.login');
-        var login = rest.all("users/login");
+        let login = rest.all("users/login");
         login.post(data).then(function (res) {            
             angular.isFunction(success) && success(res);
             log.log('LOG: UserFactory.login :: Login success!!');
@@ -25,7 +25,7 @@ export function UserFactory (Restangular, $log) {
 
     function getUsers() {
         log.log('LOG: UserFactory.getUsers');
-        return baseUsers.getList();
+        return userAll.getList();
     }
     
     function getUserByUsername(username) {

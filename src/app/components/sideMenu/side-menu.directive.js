@@ -1,8 +1,7 @@
-export function SideMenuDirective($rootScope, $mdSidenav, $document) {
+export function SideMenuDirective() {
     'ngInject';
-
+    
     let directive = {
-        link: link,
         restrict: 'E',
         replace: true,
         templateUrl: 'app/components/sideMenu/side-menu.html',
@@ -11,38 +10,30 @@ export function SideMenuDirective($rootScope, $mdSidenav, $document) {
         bindToController: true
     };
 
-    function openPage(componentId, mainContentArea) {
-        if (mainContentArea) {
-            $mdSidenav(componentId)
-                .close()
-                .then(mainContentArea.focus());
-        }
-    }
-
-    function link(scope, elem, attrs) {
-        var componentId = attrs.mdComponentId || 'mainMenu';
-        var mainContentArea = $document[0].querySelector(attrs.mainContent || 'main');
-        $rootScope.$on('$locationChangeSuccess', openPage.bind(null, componentId, mainContentArea));
-    }
-
     return directive;
 }
 
 class SideMenuController {
-    constructor(sideMenu, $mdSidenav, auth, $location) {
+    constructor(_, sideMenu, $rootScope, $log, $mdSidenav, auth, $location, $localStorage) {
         'ngInject';
         // view model bindings
+        let rootScope = $rootScope;
+        this.sideNav = $mdSidenav;
         this.auth = auth;
         this.sidenavId = 'sideMenu';
-        // this.items = _.sortBy(sideMenu.getMenu(), 'order');
-        this.sections = sideMenu.getMenu();
+        this.sections = _.sortBy(sideMenu.getMenu(), 'order');
+        rootScope.$on('$locationChangeSuccess', function(){
+            $log.log('location success event listener is called');
+        });
+        this.userFullName = $localStorage.userData.fullname;
     }
 
     close() {
-        return $mdSidenav(this.sidenavId).close();
+        let sideNav = this.sideNav;
+        return sideNav(this.sidenavId).close();
     }
 
-    canAccess(menuItem) {
+    canAccess() {
         // if (menuItem.role) {
         //     return Auth.hasRole(menuItem.role);
         // }

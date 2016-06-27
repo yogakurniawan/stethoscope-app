@@ -1,13 +1,14 @@
 export class LoginController {
-    constructor($mdDialog, $location, $log, auth) {
-        'ngInject';
-		
-				this.location = $location;
-				this.log = $log;
-				this.auth = auth;
-				this.dialog = $mdDialog;
-    }
-	
+	constructor($mdDialog, $location, $log, auth, $document) {
+		'ngInject';
+
+		this.location = $location;
+		this.log = $log;
+		this.auth = auth;
+		this.dialog = $mdDialog;
+		this.document = $document;
+	}
+
 	login(form) {
 		var vm = this;
 		var log = this.log;
@@ -20,7 +21,7 @@ export class LoginController {
 				username: vm.user.username,
 				password: vm.user.password
 			}).then(function (data) {
-				log.log("success login");
+				log.log("success login" + data);
 				// Logged in, redirect to home
 				location.path('/');
 			}).catch(function (err) {
@@ -31,17 +32,18 @@ export class LoginController {
 			});
 		}
 	}
-	
+
 	showAlert() {
 		var dialog = this.dialog;
+		var doc = this.document;
 		return dialog.show(
 			dialog.alert()
-				.parent(angular.element(document.querySelector('.st-login-box-content')))
+				.parent(angular.element(doc.querySelector('.st-login-box-content')))
 				.clickOutsideToClose(true)
 				.title('ERROR')
 				.textContent('Invalid username or password')
 				.ariaLabel('Invalid login alert dialog')
 				.ok('OK')
-		);		
+		);
 	}
 }

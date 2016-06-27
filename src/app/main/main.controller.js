@@ -1,9 +1,8 @@
 export class MainController {
-  constructor($rootScope, $location, userFactory, $log) {
+  constructor($rootScope, $location, $localStorage, $log) {
     'ngInject';
-
+    let rootScope = $rootScope;
     this.log = $log;
-    this.user = userFactory;
     this.openedSection = null;
     this.location = $location;
     this.autoFocusContent = false;
@@ -11,7 +10,8 @@ export class MainController {
       isFirstOpen: true,
       isFirstDisabled: false
     }
-    $rootScope.$on('$locationChangeSuccess', this.onLocationChange);
+    this.userDetail = $localStorage.userDetail;
+    rootScope.$on('$locationChangeSuccess', this.onLocationChange);
   }
 
   onLocationChange() {

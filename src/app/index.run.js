@@ -1,7 +1,8 @@
 export function runBlock($rootScope, $state, $log, Restangular, auth) {
   'ngInject';
   $log.debug('runBlock end');
-  $rootScope.$on('$stateChangeStart', authenticate);
+  let rootScope = $rootScope;
+  rootScope.$on('$stateChangeStart', authenticate);
   Restangular.setBaseUrl('http://localhost:9000/api/');
 
   function authenticate(event, toState) {
