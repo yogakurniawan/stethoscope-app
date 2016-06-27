@@ -24,8 +24,9 @@ export class AuthService {
 		};
 		let success = function (res) {
 			storage.token = res.id;
+			storage.userData = res.userDetail;
 			rest.setDefaultRequestParams({access_token: res.id});
-			that.getUserDetail(data.username, deferred.resolve);
+			deferred.resolve(res);
 			return cb();
 		};
 		let failed = function (err) {
@@ -41,18 +42,6 @@ export class AuthService {
 		let log = this.log;
 		log.log('LOG: Auth.isLoggedIn');
 		return !!this.storage.token;
-	}
-
-	getUserDetail(username, success, failed) {
-		var storage = this.storage;
-		let userFactory = this.userFactory;
-		failed = failed || angular.noop;
-		userFactory.getByUsername(username).then(function(res){
-			if (angular.isFunction(success)) {
-				success(res);
-			}
-			storage.userData = angular.isArray(res) ? res[0] : res;
-		}, failed);
 	}
 	
 	logout() {
