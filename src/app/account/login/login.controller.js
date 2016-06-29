@@ -1,12 +1,11 @@
 export class LoginController {
-	constructor($mdDialog, $location, $log, auth, $document) {
+	constructor($mdDialog, $location, $log, auth) {
 		'ngInject';
 
 		this.location = $location;
 		this.log = $log;
 		this.auth = auth;
 		this.dialog = $mdDialog;
-		this.document = $document;
 	}
 
 	login(form) {
@@ -35,7 +34,7 @@ export class LoginController {
 
 	showAlert() {
 		var dialog = this.dialog;
-		var doc = this.document;
+		var doc = document;
 		return dialog.show(
 			dialog.alert()
 				.parent(angular.element(doc.querySelector('.st-login-box-content')))
