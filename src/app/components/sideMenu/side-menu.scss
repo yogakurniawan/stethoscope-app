@@ -17,6 +17,9 @@
     align-items: center;
     padding: 0 0 16px;
     margin: 0 auto;
+		img {
+			height: 100px;
+		}
 	}
 }
 .side-menu {
@@ -32,6 +35,7 @@
 		cursor: pointer;
 		font-weight: 400;
 		line-height: 40px;
+		padding: 0 13px;
 		margin: 0;
 		max-height: 40px;
 		text-align: left;
@@ -53,15 +57,11 @@
 		overflow: hidden;
 		position: relative;
 		z-index: 1;
-		-webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
-		-webkit-transition-property: max-height;
-		-moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
-		-moz-transition-property: max-height;
-		transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+		transition: 0.5s cubic-bezier(0.35, 0, 0.25, 1);
 		transition-property: max-height;
 		a.md-button {
 			display: block;
-			padding: 0 16px 0 32px;
+			padding: 0 16px 0 25px;
 			text-transform: none;
 			text-rendering: optimizeLegibility;
 			font-weight: 500;
@@ -80,17 +80,14 @@
 	.md-button-toggle {
 		.md-toggle-icon {
 			&.toggled {
-				transform: rotateZ(180deg);
-				-webkit-transform: rotateZ(180deg);
+				transform: rotate(180deg);
 			}
 
-			background-size: 100% auto;
-			display: inline-block;
-			margin: auto 0 auto auto;
-			width: 15px;
-			color: darkgray;
-			transition: transform .3s ease-in-out;
-			-webkit-transition: -webkit-transform .3s ease-in-out;
+			display: block;
+			margin-left: auto;
+			vertical-align: middle;
+			transform: rotate(0deg);
+			transition: transform 0.3s ease-in-out;
 		}		
 	}
 

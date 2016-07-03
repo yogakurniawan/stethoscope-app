@@ -4,5 +4,5 @@ md-toolbar.md-primary(layout="row", layout-align="center center")
       md-icon(md-svg-icon="navigation:ic_menu_24px")
     div(flex)
       .st-navbar-logo
-    md-button.st-white.md-icon-button(ng-click="vm.auth.logout()", ui-sref="login")
+    md-button.st-white.md-icon-button(aria-label="logout", ng-click="vm.auth.logout()", ui-sref="login")
       ng-md-icon(icon="logout", size="24")

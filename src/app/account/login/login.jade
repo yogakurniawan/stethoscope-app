@@ -1,5 +1,5 @@
-section(layout="row", flex="20", layout-align="center start")
-    img(src="assets/images/stethoscope.png")
+section(layout="row", flex="20", layout-align="center center")
+    img.st-main-logo(src="assets/images/stethoscope.svg")
 section(layout="column", flex, layout-align="start center")
     br
     .st-login-box-content
@@ -21,7 +21,7 @@ section(layout="column", flex, layout-align="start center")
                         Password is required
                         
             span(md-theme="stethoscopeTheme", layout="row", layout-align="end")
-                md-button.md-primary.md-raised(ng-disabled="!loginForm.$valid", type="submit") Login
+                md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Login
     .st-login-box-footer(layout="row" layout-align="center center")
             span(flex="70")
                p Don't have an Account?

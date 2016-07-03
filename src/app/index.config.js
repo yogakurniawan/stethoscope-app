@@ -26,57 +26,24 @@ export function config(sideMenuProvider, $mdThemingProvider, $mdIconProvider, $l
 
 
   sideMenuProvider.addMenuItem({
-    name: 'Getting Started',
-    state: 'home.gettingstarted',
+    name: 'Home',
+    state: 'home',
     type: 'link'
   });
 
   sideMenuProvider.addMenuItem({
-    name: 'Beers',
+    name: 'Subscription',
     type: 'toggle',
     pages: [
       {
-        name: 'IPAs',
+        name: 'Users',
         type: 'link',
-        state: 'home',
-        icon: 'fa fa-group'
+        state: 'home'
       },
       {
-        name: 'Porters',
+        name: 'Practices',
         state: 'home.beers.porters',
-        type: 'link',
-        icon: 'fa fa-map-marker'
-      },
-      {
-        name: 'Wheat',
-        state: 'home.beers.wheat',
-        type: 'link',
-        icon: 'fa fa-plus'
-      }
-    ]
-  });
-
-  sideMenuProvider.addMenuItem({
-    name: 'Munchies',
-    type: 'toggle',
-    pages: [
-      {
-        name: 'Cheetos',
-        type: 'link',
-        state: 'munchies.cheetos',
-        icon: 'fa fa-group'
-      },
-      {
-        name: 'Banana Chips',
-        state: 'munchies.bananachips',
-        type: 'link',
-        icon: 'fa fa-map-marker'
-      },
-      {
-        name: 'Donuts',
-        state: 'munchies.donuts',
-        type: 'link',
-        icon: 'fa fa-map-marker'
+        type: 'link'
       }
     ]
   });
