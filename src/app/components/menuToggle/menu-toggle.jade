@@ -1,8 +1,0 @@
-md-button.md-primary.md-button-toggle(ng-click="toggle()", aria-controls="docs-menu-{{section.name}}", layout="row", aria-expanded="{{isSelected()}}")
-  | {{ section.name }}
-  span(flex)
-  span.md-toggle-icon(aria-hidden="true", ng-class="{'toggled' : isSelected()}")
-    ng-md-icon(aria-hidden="true", icon="keyboard_arrow_down", size="24")
-ul.menu-toggle-list(id="docs-menu-{{section.name}}", ng-show="isSelected()")
-  li(ng-repeat="page in section.pages")
-    menu-link(section="page")
