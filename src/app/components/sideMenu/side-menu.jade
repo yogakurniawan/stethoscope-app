@@ -6,7 +6,16 @@ md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="sideMenu", layout="
 				| Welcome, {{menu.userFullName}}
 	md-content(flex)
 		ul.side-menu
-			li.parent-list-item(ng-repeat="section in menu.sections", ng-class="{'parentActive' : menu.isOpen(section)}")
+			li.parent-list-item(ng-repeat="section in menu.sections")
 				h2.menu-heading(ng-if="section.type === 'heading'")
-				menu-link(section="section", ng-if="section.type === 'link'")
-				menu-toggle(section="section", ng-if="section.type === 'toggle'")
+				md-button.md-primary(ng-if="section.type === 'link'", ui-sref-active="active", ng-class="{'active' : menu.isPageSelected(section)}", ui-sref="{{section.state}}", ng-click="menu.focusSection()")
+					| {{ section.name }}
+				md-button.md-primary.md-button-toggle(ng-if="section.type === 'toggle'", ng-click="menu.toggleOpen(section)", aria-controls="docs-menu-{{section.name}}", layout="row", aria-expanded="{{menu.isSelected(section)}}")
+					| {{ section.name }}
+					span(flex)
+					span.md-toggle-icon(aria-hidden="true", ng-class="{'toggled' : menu.isSelected(section)}")
+						ng-md-icon(aria-hidden="true", icon="keyboard_arrow_down", size="24")
+				ul.menu-toggle-list(id="docs-menu-{{section.name}}", ng-show="menu.isSelected(section)")
+					li(ng-repeat="page in section.pages")
+						md-button.md-primary(ui-sref-active="active", ng-class="{'active' : menu.isSelected(page)}", ui-sref="{{page.state}}", ng-click="menu.focusSection()")
+							| {{ page.name }}

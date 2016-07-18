@@ -1,6 +1,6 @@
 export function SideMenuDirective() {
     'ngInject';
-    
+
     let directive = {
         restrict: 'E',
         replace: true,
@@ -22,10 +22,14 @@ class SideMenuController {
         this.auth = auth;
         this.sidenavId = 'sideMenu';
         this.sections = _.sortBy(sideMenu.getMenu(), 'order');
-        rootScope.$on('$locationChangeSuccess', function(){
+        rootScope.$on('$locationChangeSuccess', function () {
             $log.log('location success event listener is called');
         });
         this.userFullName = $localStorage.userData.fullname;
+        this.openedSection = null;
+        this.currentSection = null;
+        this.currentPage = null;
+        this.autoFocusContent = false;
     }
 
     close() {
@@ -43,5 +47,26 @@ class SideMenuController {
 
     logout() {
         this.close().then(this.auth.logout);
+    }
+
+    toggleOpen(section) {
+        this.openedSection = (this.openedSection === section ? null : section);
+    }
+
+    isSelected(section) {
+        return this.openedSection === section;
+    }
+
+    selectPage(section, page) {
+        this.currentSection = section;
+        this.currentPage = page;
+    }
+
+    isPageSelected(page) {
+        return this.currentPage === page
+    }
+
+    focusSection() {
+        this.autoFocusContent = true;
     }
 }

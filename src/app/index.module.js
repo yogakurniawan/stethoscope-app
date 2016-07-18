@@ -12,8 +12,6 @@ import { AuthInterceptorFactory } from '../app/components/auth/authinterceptor.f
 import { AuthService } from '../app/components/auth/auth.service';
 import { SideMenuProvider } from '../app/components/sideMenu/side-menu.provider';
 import { SideMenuDirective } from '../app/components/sideMenu/side-menu.directive'
-import { MenuLinkDirective } from '../app/components/menuLink/menu-link.directive'
-import { MenuToggleDirective } from '../app/components/menuToggle/menu-toggle.directive'
 
 angular.module('stethoscope', 
     [
@@ -48,5 +46,3 @@ angular.module('stethoscope',
   .controller('LoginController', LoginController)
   .directive('stNavbar', NavbarDirective)
   .directive('sideMenu', SideMenuDirective)
-  .directive('menuLink', MenuLinkDirective)
-  .directive('menuToggle', MenuToggleDirective)
