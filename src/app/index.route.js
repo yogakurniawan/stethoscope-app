@@ -8,6 +8,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'main',
       authenticate: true
     })
+    .state('registration', {
+      url: '/registration',
+      templateUrl: 'app/account/registration/registration.html',
+      controller: 'RegistrationController',
+      controllerAs: 'reg'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'app/account/login/login.html',      

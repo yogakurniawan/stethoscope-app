@@ -5,6 +5,7 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
 import { LoginController } from './account/login/login.controller';
+import { RegistrationController } from './account/registration/registration.controller';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { UserFactory } from '../app/components/auth/user.factory';
@@ -27,7 +28,9 @@ angular.module('stethoscope',
       'ui.router', 
       'ngMaterial', 
       'toastr',
-      'ngMdIcons'
+      'ngMdIcons',
+      'formly',
+      'formlyMaterial'
     ]
   )
   .constant('moment', moment)
@@ -44,5 +47,6 @@ angular.module('stethoscope',
   .factory('authInterceptor', AuthInterceptorFactory)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
+  .controller('RegistrationController', RegistrationController)
   .directive('stNavbar', NavbarDirective)
   .directive('sideMenu', SideMenuDirective)
