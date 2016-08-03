@@ -1,29 +1,28 @@
 div(layout="row", flex="20", layout-align="center center")
     img.st-main-logo(src="assets/images/stethoscope.png")
-div(layout="column", flex, layout-align="start center")
+div(layout="row", flex, layout-align="center start")
     br
     .st-login-box-content
         div(layout="column", layout-align="center center")
             h1 Login
-        form#login-content(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
-            md-input-container(md-is-error="loginForm.username.$error.required && loginForm.username.$dirty")
-                label Username
-                input(name="username", ng-model="login.user.username", required)
-                div(ng-messages="loginForm.username.$error", ng-if="loginForm.username.$dirty")
-                    div(ng-message="required")
-                        Username is required
-
-            md-input-container(md-is-error="loginForm.password.$error.required && loginForm.password.$dirty")
-                label Password
-                input(name="password", type="password", ng-model="login.user.password", required)
-                div(ng-messages="loginForm.password.$error", ng-if="loginForm.password.$dirty")
-                    div(ng-message="required")
-                        Password is required
-                        
-            span(layout="row", layout-align="end")
-                md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Login
-    .st-login-box-footer(layout="row" layout-align="center center")
-            span(flex="70")
-               p Don't have an Account?
-            span(flex="20", layout="row" layout-align="end center")
-                md-button.md-raised(aria-label="register") Register
+            form#login-content(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
+                md-input-container(md-is-error="loginForm.username.$error.required && loginForm.username.$dirty")
+                    label Username
+                    input(name="username", ng-model="login.user.username", required)
+                    div(ng-messages="loginForm.username.$error", ng-if="loginForm.username.$dirty")
+                        div(ng-message="required")
+                            Username is required
+                md-input-container(md-is-error="loginForm.password.$error.required && loginForm.password.$dirty")
+                    label Password
+                    input(name="password", type="password", ng-model="login.user.password", required)
+                    div(ng-messages="loginForm.password.$error", ng-if="loginForm.password.$dirty")
+                        div(ng-message="required")
+                            Password is required
+                span(layout="row", layout-align="end")
+                    md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Login
+        .st-login-box-footer(layout="row" layout-align="center center")
+                span(flex="20")
+                span(flex="50")
+                    p Don't have an Account?
+                span(flex="20", layout="row" layout-align="end center")
+                    md-button.md-raised(aria-label="register", ng-click="login.register()") Register

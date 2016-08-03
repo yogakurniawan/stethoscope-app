@@ -6,15 +6,29 @@ export class RegistrationController {
     };
     this.fields = [
       {
-        type: "input",
-        key: "firstName",
-        templateOptions: {
-          type: "text",
-          label: "First name",
-          pattern: "[a-zA-Z]+",
-          theme: "custom"
-        }
-      }
+        "elementAttributes": {
+          "layout": "row",
+          "layout-sm": "column"
+        },
+        "fieldGroup": [
+          {
+            "key": "firstName",
+            "className": "flex",
+            "type": "input",
+            "templateOptions": {
+              "label": "First Name"
+            }
+          },
+          {
+            "key": "lastName",
+            "className": "flex",
+            "type": "input",
+            "templateOptions": {
+              "label": "Last Name"
+            }
+          }
+        ]
+      },
     ];
   }
 

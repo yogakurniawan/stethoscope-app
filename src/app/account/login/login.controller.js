@@ -1,11 +1,12 @@
 export class LoginController {
-	constructor($mdDialog, $location, $log, auth) {
+	constructor($mdDialog, $location, $log, auth, $state) {
 		'ngInject';
 
 		this.location = $location;
 		this.log = $log;
 		this.auth = auth;
 		this.dialog = $mdDialog;
+		this.state = $state;
 	}
 
 	login(form) {
@@ -44,5 +45,10 @@ export class LoginController {
 				.ariaLabel('Invalid login alert dialog')
 				.ok('OK')
 		);
+	}
+
+	register() {
+		var state = this.state;
+		state.go("registration");
 	}
 }
