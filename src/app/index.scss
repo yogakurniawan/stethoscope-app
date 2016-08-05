@@ -21,6 +21,24 @@
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+$color_spectra_approx: rgb(0,150,136);
+$color_gossamer_18_approx: rgba(0, 150, 136, 0.18);
+
+.st-primary {
+    svg {
+        fill: $color_spectra_approx;
+    }
+    color: $color_spectra_approx;
+    background: none;
+    background-color: $color_spectra_approx;
+}
+
+.st-white {
+    svg {
+        fill: white;
+    }
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

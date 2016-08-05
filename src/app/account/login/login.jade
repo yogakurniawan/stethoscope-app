@@ -2,7 +2,7 @@ div(layout="row", flex="20", layout-align="center center")
     img.st-main-logo(src="assets/images/stethoscope.png")
 div(layout="row", flex, layout-align="center start")
     br
-    .st-login-box-content
+    .st-account-box-content
         div(layout="column", layout-align="center center")
             h1 Login
             form#login-content(name="loginForm", layout="column", layout-fill, layout-align="", ng-submit="login.login(loginForm)")
@@ -20,7 +20,7 @@ div(layout="row", flex, layout-align="center start")
                             Password is required
                 span(layout="row", layout-align="end")
                     md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Login
-        .st-login-box-footer(layout="row" layout-align="center center")
+        .st-account-box-footer(layout="row" layout-align="center center")
                 span(flex="20")
                 span(flex="50")
                     p Don't have an Account?

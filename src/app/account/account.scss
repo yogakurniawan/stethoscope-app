@@ -15,7 +15,7 @@ form#login-content {
 	height: 100px;
 }
 
-.st-login-box-content {
+.st-account-box-content {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	padding-top: 20px;
@@ -25,7 +25,7 @@ form#login-content {
 	}
 }
 
-.st-login-box-footer {
+.st-account-box-footer {
 	background-color: $color_spectra_approx;
 	height: 60px;
 	width: 550px;
@@ -38,4 +38,18 @@ form#login-content {
 	a {
 		color: #fff;
 	}
+}
+
+.st-formly-full-width {
+  width: 80%;
+  md-input-container {
+    width: 100%;
+  }
+}
+
+.st-registration-form {
+  margin-top: 20px;
+  .formly-field-input, .formly-field-select {
+    margin-right: 10px;
+  }
 }
