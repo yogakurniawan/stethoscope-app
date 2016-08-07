@@ -5,3 +5,9 @@ div(layout="column", flex, layout-align="start center")
     div(layout="column", layout-align="center center")
       h1 Sign Up
       formly-form(model="reg.model", fields="reg.fields", class="st-registration-form st-formly-full-width")
+    .st-account-box-footer(layout="row" layout-align="center center")
+      span(flex="20")
+      span(flex="50")
+          p Already Have an Account?
+      span(flex="20", layout="row" layout-align="end center")
+          md-button.md-raised(aria-label="register", ng-click="reg.login()") Sign In

@@ -41,7 +41,7 @@ form#login-content {
 }
 
 .st-formly-full-width {
-  width: 80%;
+  width: 90%;
   md-input-container {
     width: 100%;
   }
@@ -49,7 +49,7 @@ form#login-content {
 
 .st-registration-form {
   margin-top: 20px;
-  .formly-field-input, .formly-field-select {
+  .formly-field-input:nth-child(2), .formly-field-select {
     margin-right: 10px;
   }
 }
