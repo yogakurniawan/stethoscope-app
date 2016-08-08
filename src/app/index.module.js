@@ -49,4 +49,4 @@ angular.module('stethoscope',
   .controller('LoginController', LoginController)
   .controller('RegistrationController', RegistrationController)
   .directive('stNavbar', NavbarDirective)
-  .directive('sideMenu', SideMenuDirective)
+  .directive('stSideMenu', SideMenuDirective)
