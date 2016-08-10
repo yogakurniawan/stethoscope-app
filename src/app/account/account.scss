@@ -16,7 +16,7 @@ form#login-content {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	padding-top: 20px;
-	width: 40%;
+	width: 45%;
 	background-color: rgba(33, 89, 89, 0.07);
 	form {
 		margin-top: 10px;
@@ -29,13 +29,13 @@ form#login-content {
 
 .st-account-box-footer {
 	background-color: $color_spectra_approx;
-	height: 60px;
-	width: 40%;
+	min-height: 60px;
+	width: 45%;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	p {
 		color: rgb(202, 202, 206);
-		text-align: right;
+		text-align: center;
 	}
 	a {
 		color: #fff;
@@ -54,4 +54,44 @@ form#login-content {
   .formly-field-input:nth-child(2), .formly-field-select {
     margin-right: 10px;
   }
+}
+
+@media only screen and (max-width : 600px){
+	.st-account-box-content {
+		width: 70%;
+	}
+
+	.st-account-box-footer {
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width : 601px) and (max-width : 960px){
+	.st-account-box-content {
+		width: 65%;
+	}
+
+	.st-account-box-footer {
+		width: 65%;
+	}
+}
+
+@media only screen and (min-width : 961px ) and (max-width : 1280px){
+	.st-account-box-content {
+		width: 50%;
+	}
+
+	.st-account-box-footer {
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width : 1281px ) and (max-width : 1920px){
+	.st-account-box-content {
+		width: 40%;
+	}
+
+	.st-account-box-footer {
+		width: 40%;
+	}
 }

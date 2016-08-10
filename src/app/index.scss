@@ -6,6 +6,7 @@
 // endbower
 
 @import url(https://fonts.googleapis.com/css?family=Oxygen);
+@import url(../../bower_components/font-awesome/scss/font-awesome.scss);
 // @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 // @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
@@ -66,6 +67,10 @@ $color_gossamer_18_approx: rgba(0, 150, 136, 0.18);
 
 html {
   font-family: 'Oxygen', sans-serif;
+}
+
+body {
+  min-height:650px;
 }
 
 [layout=row] {
