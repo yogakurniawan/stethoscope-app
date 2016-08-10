@@ -1,8 +1,8 @@
-div(layout="row", flex="20", layout-align="center center")
+div(layout="row", flex-gt-md="20", flex-gt-sm="10", layout-align="center center")
     img.st-main-logo(src="assets/images/stethoscope.png")
 div(layout="column", flex, layout-align="start center")
     br
-    .st-account-box-content(flex="65")
+    .st-account-box-content(flex-gt-lg="65", flex-gt-md="65", flex-gt-sm="60", flex-gt-xs="65")
         div(layout="column", layout-align="center center")
             h1 Login
             form#login-content(name="loginForm", layout="column", layout-fill, layout-align="center center", ng-submit="login.login(loginForm)")
