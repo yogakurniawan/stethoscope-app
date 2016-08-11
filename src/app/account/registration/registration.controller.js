@@ -78,6 +78,13 @@ export class RegistrationController {
         ]
       },
       {
+        key: "username",
+        type: "input",
+        templateOptions: {
+          label: "Username"
+        }
+      },
+      {
         key: "email",
         type: "input",
         templateOptions: {

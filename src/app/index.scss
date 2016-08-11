@@ -41,6 +41,9 @@ $color_gossamer_18_approx: rgba(0, 150, 136, 0.18);
 }
 
 .material-icons {
+  .md-light { 
+    color: rgba(0, 0, 0, 0.44); 
+  }
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;

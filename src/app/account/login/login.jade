@@ -9,7 +9,7 @@ div(layout="column", flex, layout-align="start center")
                 span(layout="row", layout-align="center center", layout-fill)
                     md-input-container(md-is-error="loginForm.username.$error.required && loginForm.username.$dirty")
                         md-icon
-                            i.material-icons person
+                            i.material-icons.md-light person
                         label Username
                         input(name="username", ng-model="login.user.username", required)
                         div(ng-messages="loginForm.username.$error", ng-if="loginForm.username.$dirty")
@@ -18,7 +18,7 @@ div(layout="column", flex, layout-align="start center")
                 span(layout="row", layout-align="center center", layout-fill)
                     md-input-container(md-is-error="loginForm.password.$error.required && loginForm.password.$dirty")
                         md-icon
-                            i.material-icons lock
+                            i.material-icons.md-light lock
                         label Password
                         input(name="password", type="password", ng-model="login.user.password", required)
                         div(ng-messages="loginForm.password.$error", ng-if="loginForm.password.$dirty")
@@ -28,8 +28,8 @@ div(layout="column", flex, layout-align="start center")
                     span(flex)
                     md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Sign In
     .st-account-box-footer(layout-md="row", layout-lg="row", layout-sm="row", layout-xs="column", layout-align="center center")
-            span(flex-lg="30", flex-xs="0")
-            span(flex-md="30", flex-xs="60")
+            span(flex-lg="20", flex-md="10", flex-sm="5", flex-xs="0")
+            span(flex-lg="40", flex-md="50", flex-sm="60", flex-xs="60")
                 p Don't Have an Account?
-            span(flex-offset-md="40", flex-offset-sm="35", flex-offset-xs="5", flex-xs="20", flex-gt-md="20", layout-gt-md="row", layout-align-gt-md="end center")
+            span(flex-offset-md="30", flex-offset-xs="5", flex-md="40", flex-sm="25", flex-xs="20", flex-lg="20", layout-gt-md="row", layout-align-gt-md="end center")
                 md-button.md-raised(aria-label="register", ng-click="login.register()") Register
