@@ -1,11 +1,11 @@
 div(layout="row", flex="20", layout-align="center center")
     img.st-main-logo(src="assets/images/stethoscope.png")
 div(layout="row", flex, layout-align="center center")
-  div(flex="40")
+  div(flex-gt-md="40", flex-md="60", flex-xs="100", flex-sm="80")
     div.st-account-box-content(layout="column", layout-align="center center")
       h1 Sign Up
       formly-form(model="reg.model", fields="reg.fields", class="st-registration-form st-formly-full-width")
-        md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Sign In
+        md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Get Started
     div(layout="column", layout-align="center center")
       .st-account-box-footer(layout-md="row", layout-lg="row", layout-sm="row", layout-xs="column", layout-align="center center")
         span(flex-lg="60", flex-md="60", flex-sm="60", flex-xs="0")

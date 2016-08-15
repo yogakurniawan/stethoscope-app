@@ -16,10 +16,11 @@ form#login-content {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	padding-top: 20px;
-	width: 45%;
+	width: 100%;
 	background-color: rgba(33, 89, 89, 0.16);
 	form {
 		margin-top: 10px;
+		margin-bottom: 20px;
 		width: 80%;
 		md-input-container {
 			width: 100%;
@@ -28,6 +29,7 @@ form#login-content {
 }
 
 .st-account-box-footer {
+	margin-bottom: 20px;
 	background-color: $color_spectra_approx;
 	min-height: 60px;
 	width: 100%;
@@ -50,49 +52,13 @@ form#login-content {
 }
 
 .st-registration-form {
+	margin-bottom: 20px;
   margin-top: 20px;
   .formly-field-input:nth-child(2), .formly-field-select {
     margin-right: 10px;
   }
-}
-
-@media only screen and (max-width : 600px){
-	.st-account-box-content {
-		width: 70%;
-	}
-
-	.st-account-box-footer {
-		width: 70%;
-	}
-}
-
-@media only screen and (min-width : 601px) and (max-width : 960px){
-	.st-account-box-content {
-		width: 65%;
-	}
-
-	.st-account-box-footer {
-		width: 65%;
-	}
-}
-
-@media only screen and (min-width : 961px ) and (max-width : 1280px){
-	.st-account-box-content {
-		width: 50%;
-	}
-
-	.st-account-box-footer {
-		width: 50%;
-	}
-}
-
-@media only screen and (min-width : 1281px ) and (max-width : 1920px){
-	.st-account-box-content {
-		width: 100%;
-	}
-
-	.st-account-box-footer {
-		width: 100%;
+	div:last-child {
+		text-align: right;
 	}
 }
 
