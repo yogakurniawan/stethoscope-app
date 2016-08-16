@@ -4,9 +4,61 @@ div(layout="row", flex, layout-align="center center")
   div(flex-gt-md="40", flex-md="60", flex-xs="100", flex-sm="80")
     div.st-account-box-content(layout="column", layout-align="center center")
       h1 Sign Up
-      formly-form(model="reg.model", fields="reg.fields", form="reg.form", class="st-registration-form st-formly-full-width")
-        div.st-pull-right
-          md-button.md-primary.md-raised(aria-label="login", ng-disabled="reg.form.$invalid", type="submit") Get Started
+      form(name="regForm", class="st-registration-form")
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.practicename.$error.required && regForm.practicename.$dirty")
+                label Practice Name
+                input(name="practicename", ng-model="reg.user.practicename", required)
+                div(ng-messages="regForm.practicename.$error", ng-if="regForm.practicename.$dirty")
+                    div(ng-message="required")
+                        | Practice Name is required
+        span(layout="row", layout-align="center center", flex="20")
+            md-input-container(md-is-error="regForm.title.$error.required && regForm.title.$dirty")
+                label Title
+                md-select(name="title", ng-model="reg.user.title", md-on-open="reg.loadLookups()", required)
+                    md-option(ng-value="title.lookupvalue" ng-repeat="title in reg.titleList")
+                        | {{title.lookuptext}}
+                div(ng-messages="regForm.title.$error", ng-if="regForm.title.$dirty")
+                    div(ng-message="required")
+                        | Title is required
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.firstname.$error.required && regForm.firstname.$dirty")
+                label First Name
+                input(name="firstname", ng-model="reg.user.firstname", required)
+                div(ng-messages="regForm.firstname.$error", ng-if="regForm.firstname.$dirty")
+                    div(ng-message="required")
+                        | First Name is required
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.lastname.$error.required && regForm.lastname.$dirty")
+                label Last Name
+                input(name="lastname", ng-model="reg.user.lastname", required)
+                div(ng-messages="regForm.lastname.$error", ng-if="regForm.lastname.$dirty")
+                    div(ng-message="required")
+                        | Last Name is required
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.username.$error.required && regForm.username.$dirty")
+                label Username
+                input(name="username", ng-model="reg.user.username", required)
+                div(ng-messages="regForm.username.$error", ng-if="regForm.username.$dirty")
+                    div(ng-message="required")
+                        | Username is required
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.email.$error.required && regForm.email.$dirty")
+                label Email
+                input(name="email", ng-model="reg.user.email", required)
+                div(ng-messages="regForm.email.$error", ng-if="regForm.email.$dirty")
+                    div(ng-message="required")
+                        | Email is required
+        span(layout="row", layout-align="center center", layout-fill)
+            md-input-container(md-is-error="regForm.phonenumber.$error.required && regForm.phonenumber.$dirty")
+                label Phone Number
+                input(name="phonenumber", ng-model="reg.user.phonenumber", required)
+                div(ng-messages="regForm.phonenumber.$error", ng-if="regForm.phonenumber.$dirty")
+                    div(ng-message="required")
+                        | Phone Number is required
+        span(layout="row", layout-align="center center", layout-fill)
+            span(flex)
+            md-button.md-primary.md-raised(aria-label="Get Started", ng-disabled="!regForm.$valid", type="submit") Get Started
     div(layout="column", layout-align="center center")
       .st-account-box-footer(layout-md="row", layout-lg="row", layout-sm="row", layout-xs="column", layout-align="center center")
         span(flex-lg="60", flex-md="60", flex-sm="60", flex-xs="0")

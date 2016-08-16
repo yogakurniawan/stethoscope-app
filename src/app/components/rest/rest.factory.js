@@ -1,20 +1,27 @@
-export function UserFactory (Restangular, $log) {
+export function RestFactory (Restangular, $log) {
     'ngInject'
     var rest = Restangular;
+    var lookupAll = rest.all('lookups');
     var userAll = rest.all('users');
     var userOne = rest.one('users');
     var log = $log;
 
     return {
+        listLookups: getLookups,
         login: login,
         listUsers: getUsers,
         getByUsername: getUserByUsername
     }
 
+    function getLookups() {
+        log.log('LOG: RestFactory.getLookups');
+        return lookupAll.getList();
+    }
+
     function login(data, success, fail) {
         log.log('LOG: UserFactory.login');
         let login = rest.all("users/login");
-        login.post(data).then(function (res) {            
+        login.post(data).then(function (res) {
             angular.isFunction(success) && success(res);
             log.log('LOG: UserFactory.login :: Login success!!');
         }, function (err) {

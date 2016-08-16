@@ -1,7 +1,7 @@
 export class AuthService {
-	constructor ($state, $q, $localStorage, userFactory, Restangular, $log) {
+	constructor ($state, $q, $localStorage, restFactory, Restangular, $log) {
 		'ngInject';
-		this.userFactory = userFactory;
+		this.restFactory = restFactory;
 		this.storage = $localStorage;
 		this.rest = Restangular;
 		this.q = $q;
@@ -14,7 +14,7 @@ export class AuthService {
 		let cb = callback || angular.noop;
 		let q = this.q;
 		let deferred = q.defer();
-		let userFactory = this.userFactory;
+		let restFactory = this.restFactory;
 		let storage = this.storage;
 		let rest = this.rest;
 		var that = this;
@@ -34,7 +34,7 @@ export class AuthService {
 			deferred.reject(err);
 			return cb(err);
 		};
-		userFactory.login(data, success, failed);
+		restFactory.login(data, success, failed);
 		return deferred.promise;
 	}
 	
