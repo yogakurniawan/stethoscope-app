@@ -12,7 +12,15 @@ export class RegistrationController {
         key: "practiceName",
         type: "input",
         templateOptions: {
-          label: "Practice Name"
+          label: "Practice Name",
+          required: true
+        },
+        validation: {
+          messages: {
+            required: (viewValue, modelValue, scope) => {
+              return scope.to.label + ' is required';
+            }
+          }
         }
       },
       {

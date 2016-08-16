@@ -13,7 +13,7 @@ div(layout="row", flex, layout-align-gt-md="center start", layout-align="center 
                         input(name="username", ng-model="login.user.username", required)
                         div(ng-messages="loginForm.username.$error", ng-if="loginForm.username.$dirty")
                             div(ng-message="required")
-                                Username is required
+                                | Username is required
                 span(layout="row", layout-align="center center", layout-fill)
                     md-input-container(md-is-error="loginForm.password.$error.required && loginForm.password.$dirty")
                         md-icon
@@ -22,7 +22,7 @@ div(layout="row", flex, layout-align-gt-md="center start", layout-align="center 
                         input(name="password", type="password", ng-model="login.user.password", required)
                         div(ng-messages="loginForm.password.$error", ng-if="loginForm.password.$dirty")
                             div(ng-message="required")
-                                Password is required
+                                | Password is required
                 span(layout="row", layout-align="center center", layout-fill)
                     span(flex)
                     md-button.md-primary.md-raised(aria-label="login", ng-disabled="!loginForm.$valid", type="submit") Sign In

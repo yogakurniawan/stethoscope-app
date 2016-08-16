@@ -57,9 +57,10 @@ form#login-content {
   .formly-field-input:nth-child(2), .formly-field-select {
     margin-right: 10px;
   }
-	div:last-child {
-		text-align: right;
-	}
+}
+
+.st-pull-right {
+	text-align: right;
 }
 
 .container {
