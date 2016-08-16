@@ -5,6 +5,7 @@ export class RegistrationController {
     this.restFactory = restFactory;
     this.state = $state;
     this.titleList = null;
+    this.loadLookups();
   }
 
   login() {
