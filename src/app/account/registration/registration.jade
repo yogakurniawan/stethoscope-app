@@ -43,12 +43,14 @@ div(layout="row", flex, layout-align="center center")
                     div(ng-message="required")
                         | Username is required
         span(layout="row", layout-align="center center", layout-fill)
-            md-input-container(md-is-error="regForm.email.$error.required && regForm.email.$dirty")
+            md-input-container(md-is-error="(regForm.email.$error.required || regForm.email.$error.email) && regForm.email.$dirty")
                 label Email
-                input(name="email", ng-model="reg.user.email", required)
+                input(name="email", type="email", maxLength="100", ng-pattern="/^.+@.+\..+$/", ng-model="reg.user.email", required)
                 div(ng-messages="regForm.email.$error", ng-if="regForm.email.$dirty")
                     div(ng-message="required")
                         | Email is required
+                    div(ng-message="pattern")
+                        | Email is not valid
         span(layout="row", layout-align="center center", layout-fill)
             md-input-container(md-is-error="regForm.phonenumber.$error.required && regForm.phonenumber.$dirty")
                 label Phone Number
