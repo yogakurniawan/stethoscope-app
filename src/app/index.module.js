@@ -28,9 +28,7 @@ angular.module('stethoscope',
       'ui.router', 
       'ngMaterial', 
       'toastr',
-      'ngMdIcons',
-      'formly',
-      'formlyMaterial'
+      'ngMdIcons'
     ]
   )
   .constant('moment', moment)
