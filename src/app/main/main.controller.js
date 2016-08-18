@@ -1,15 +1,17 @@
 export class MainController {
-  constructor($rootScope, $location, $localStorage, $log) {
+  constructor($scope, $rootScope, $location, $localStorage, $log, $state) {
     'ngInject';
     let rootScope = $rootScope;
     this.log = $log;
     this.location = $location;
+    $scope.realPerson = { name: "hello"};
     this.status = {
       isFirstOpen: true,
       isFirstDisabled: false
     }
     this.userDetail = $localStorage.userDetail;
     rootScope.$on('$locationChangeSuccess', this.onLocationChange);
+    $state.go('main.home');
   }
 
   onLocationChange() {

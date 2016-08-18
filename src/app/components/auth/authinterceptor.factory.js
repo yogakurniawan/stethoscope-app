@@ -21,6 +21,7 @@ export function AuthInterceptorFactory ($q, $location, $timeout, $localStorage, 
             if (response.status === 401) {
                 // remove any stale tokens
                 delete storage.token;
+                delete storage.userData;
 
                 // use timeout to perform location change
                 // in the next digest cycle

@@ -1,11 +1,15 @@
 export function routerConfig ($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
-    .state('home', {
+    .state('main', {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainController',
       controllerAs: 'main',
+      authenticate: true
+    })
+    .state('main.home', {
+      templateUrl: 'app/main/home.html',
       authenticate: true
     })
     .state('registration', {
