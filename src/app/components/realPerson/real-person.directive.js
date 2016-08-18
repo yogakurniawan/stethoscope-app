@@ -4,7 +4,7 @@ export function RealPersonDirective() {
     let directive = {
         restrict: 'E',
         replace: true,
-        templateUrl: 'app/components/sideMenu/side-menu.html',
+        templateUrl: 'app/components/realPerson/real-person.html',
         controller: RealPersonController,
         controllerAs: 'realPerson',
         bindToController: true
@@ -16,5 +16,6 @@ export function RealPersonDirective() {
 class RealPersonController {
     constructor() {
         'ngInject';
+        this.naomi = "test";
     }
 }

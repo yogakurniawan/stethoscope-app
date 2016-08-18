@@ -13,6 +13,7 @@ import { AuthInterceptorFactory } from '../app/components/auth/authinterceptor.f
 import { AuthService } from '../app/components/auth/auth.service';
 import { SideMenuProvider } from '../app/components/sideMenu/side-menu.provider';
 import { SideMenuDirective } from '../app/components/sideMenu/side-menu.directive'
+import { RealPersonDirective } from '../app/components/realPerson/real-person.directive'
 
 angular.module('stethoscope', 
     [
@@ -48,3 +49,4 @@ angular.module('stethoscope',
   .controller('RegistrationController', RegistrationController)
   .directive('stNavbar', NavbarDirective)
   .directive('stSideMenu', SideMenuDirective)
+  .directive('realPerson', RealPersonDirective)
