@@ -1,2 +1,4 @@
 div
-  p {{realPerson.naomi}}
+  div(ng-bind-html="realPerson.text")
+  div.realperson-regen(ng-click="realPerson.click()")
+    | Click to change
