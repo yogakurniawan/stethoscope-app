@@ -58,6 +58,8 @@ div(layout="row", flex, layout-align="center center")
                 div(ng-messages="regForm.phonenumber.$error", ng-if="regForm.phonenumber.$dirty")
                     div(ng-message="required")
                         | Phone Number is required
+        span(layout="row", layout-align="start center", layout-fill)
+            real-person
         span(layout="row", layout-align="center center", layout-fill)
             span(flex)
             md-button.md-primary.md-raised(aria-label="Get Started", ng-disabled="!regForm.$valid", type="submit") Get Started

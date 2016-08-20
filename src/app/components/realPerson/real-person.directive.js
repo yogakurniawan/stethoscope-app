@@ -23,7 +23,7 @@ function link(log, scope, element, attr) {
         let divEl = angular.element(div);
         if (divEl.hasClass('realperson-regen')) {
             divEl.bind('click', function(){
-                log.log("called");
+                scope.realPerson.text = scope.realPerson.generateHTML();
             })
         }
     });
@@ -32,7 +32,7 @@ function link(log, scope, element, attr) {
 class RealPersonController {
     constructor() {
         'ngInject';
-        const constant = {
+        this.constant = {
             dots: [
                 ['   *   ', '  * *  ', '  * *  ', ' *   * ', ' ***** ', '*     *', '*     *'],
                 ['****** ', '*     *', '*     *', '****** ', '*     *', '*     *', '****** '],
@@ -81,10 +81,11 @@ class RealPersonController {
             dot: '*',
             length: 6
         };
-        this.text = this.generateHTML(constant);
+        this.text = this.generateHTML();
     }
 
-    generateHTML(constant) {
+    generateHTML() {
+        var constant = this.constant;
         var text = '';
         for (let i = 0; i < constant.length; i++) {
             text += constant.ALPHANUMERIC.charAt(Math.floor(Math.random() * constant.ALPHANUMERIC.length));
